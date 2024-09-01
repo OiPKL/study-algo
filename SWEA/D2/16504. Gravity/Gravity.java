@@ -1,35 +1,32 @@
 import java.util.Scanner;
 
 public class Solution {
-
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int T = sc.nextInt();
-		
-		for (int t = 1; t <= T; t++) {
+		int TC = sc.nextInt();
+		for (int tc = 1; tc <= TC; tc++) {
 			
 			int N = sc.nextInt();
-			int[] gravity = new int[N];
-			
-			int maxDrop = 0;
-			
-			for (int n = 0; n < N; n++) {
-				gravity[n] = sc.nextInt();
-			}
-			
-			for (int i = 0; i < N; i++) {
-				int drop = 0;
-				for (int j = i + 1; j < N; j++) {
-					if (gravity[i] > gravity[j]) {
-						drop++;
-					}
+			int[][] room = new int[100][N];
+			for (int c = 0; c < N; c++) {
+				int box = sc.nextInt();
+				for (int r = 0; r < box; r++) {
+					room[99-r][c] = 1;
 				}
-				maxDrop = Math.max(maxDrop, drop);
 			}
 			
-			System.out.println("#" + t + " " + maxDrop);
+			int maxCnt = 0;
+			for (int r = 99; r >= 0; r--) {
+				int cnt = 0;
+				for (int c = N - 1; c >= 0; c--) {
+					if (room[r][c] == 0) cnt++;
+					else maxCnt = Math.max(maxCnt, cnt);
+				}
+			}
+
+			System.out.println("#" + tc + " " + maxCnt);
 		}
 		
 	}
