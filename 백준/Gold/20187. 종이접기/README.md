@@ -6,8 +6,6 @@
 
 메모리: 13112 KB, 시간: 96 ms
 
-| 63점 코드 그대로길래 수동으로 업데이트함 + BufferedReader & StringBuilder
-
 ### 분류
 
 구현
